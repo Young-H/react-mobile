@@ -1,4 +1,5 @@
 .menu {
+  padding-bottom: 50px;
   .am-flexbox {
     text-align: center;
     padding-top: 10px;
@@ -50,12 +51,42 @@
 
   .new {
     background-color: #fff;
-    .group-title {
-      padding-left: 10px;
+    margin-top: 20px;
+    .news-title {
+      padding-left: 15px;
       height: 40px;
       line-height: 40px;
       font-size: 15px;
+      padding-top: 10px;
     }
+    .news-item {
+      display: flex;
+      width: 100%;
+      height: 120px;
+      padding: 15px 0;
+      .imgwarp {
+        .img {
+          width: 120px;
+          height: 90px;
+        }
+      }
+      .content {
+        padding: 0 12px;
+        flex: 1;
+        .title {
+          font-size: 14px;
+          text-align: left;
+        }
+        .info {
+          width: 100%;
+          color: #787d55;
+        }
+      }
+    }
+  }
+
+  .am-tab-bar-bar {
+    height: 50px;
   }
 }
 
