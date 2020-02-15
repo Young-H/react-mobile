@@ -1,11 +1,61 @@
-.menu .am-flexbox {
-  text-align: center;
-  padding-top: 10px;
-  img {
-    height: 48px;
+.menu {
+  .am-flexbox {
+    text-align: center;
+    padding-top: 10px;
+    img {
+      height: 48px;
+    }
+    p {
+      margin-top: 7px;
+      font-size: 13px;
+    }
   }
-  p {
-    margin-top: 7px;
-    font-size: 13px;
+  .group {
+    overflow: hidden;
+    padding: 0 10px;
+    background-color: #f6f6f6;
+    &-title {
+      margin: 15px 0px;
+      h3 {
+        font-size: 15px;
+      }
+      span {
+        font-size: 14px;
+        color: #787d82;
+      }
+    }
+    .am-grid {
+      height: 200px;
+      .am-flexbox {
+        margin-bottom: 15px;
+       }
+      .group-item {
+        .desc {
+          float: left;
+          padding-left: 20px;
+          p {
+            color: #787d82;
+          }
+        }
+        img {
+          float: right;
+          width: 50px;
+          height: 50px;
+          line-height: 1;
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+
+  .new {
+    background-color: #fff;
+    .group-title {
+      padding-left: 10px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 15px;
+    }
   }
 }
+
