@@ -14,7 +14,8 @@ axios.defaults.baseURL = "http://localhost:8080";
 
 export default class Index extends Component {
   state = {
-    swiperData: []
+    swiperData: [],
+    isload:true
   };
 
   // 接口拿到轮播图数据
