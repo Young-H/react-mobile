@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Carousel, Flex, Grid, WingBlank } from "antd-mobile";
+import { Carousel, Flex, Grid, WingBlank,NavBar,Icon} from "antd-mobile";
 // import axios from "axios";
 import $axios from '../../utils/api'
 import { IMG_Url } from '../../utils/config'
@@ -168,9 +168,27 @@ export default class Index extends Component {
     )
   }
 
+  // 动态生成顶部导航
+  renderNavbar = () => {
+    return (
+      <NavBar
+        mode="dark"
+        icon='北京'
+        onLeftClick={() => {
+          // 跳转到选择城市页面
+          this.props.history.push('/citylist')
+        }}
+        rightContent={[
+          <Icon key="1" type="ellipsis" />,
+        ]}
+      >主页</NavBar>
+    )
+  }
   render() {
     return (
       <div ref='warpper'>
+        {/* 顶部导航 */}
+        {this.renderNavbar()}
         {/* 顶部轮播图 */}
         {this.swiper()}
         {/* 导航菜单 */}

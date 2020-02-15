@@ -4,6 +4,7 @@ import React from 'react';
 import {BrowserRouter as Router , Route , Switch, Redirect } from 'react-router-dom'
 
 import Home from './views/layout'
+import City from './views/city'
 
 function Login () {
   return <div>登录</div>
@@ -22,6 +23,7 @@ function App() {
           <Redirect exact from='/' to='/login' />
           <Route path='/home' component={Home} />
           <Route path='/login' component={Login} />
+          <Route path='/citylist' component={City} />
           <Route component={NotMatch} />
         </Switch>
       </Router>      
