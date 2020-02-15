@@ -26,10 +26,14 @@ export default class Layout extends Component {
     let Url = this.props.location.pathname
     // lastIndexOf  是从右往左查询， 但是返回的位置，是从左往右。 也可以用indexOf
     //  substring(star,ent) 第一个参数是从哪截取， 第二个参数是截取到哪结束
-    let selected = Url.substring( Url.lastIndexOf("/") + 1 ,Url.length)
-    this.setState({
-      selectedTab:selected
-    })
+    let index = Url.lastIndexOf('/') 
+    // 如果是一级路由， 拿到的是/home  是0  所以必须是二级路由 能拿到，必须是2级路由，才设置
+    if (index !== -1 && index !== 0 ) {
+      let selected = Url.substring(index + 1)
+      this.setState({
+        selectedTab:selected
+      })
+    }
 
     // Url = Url.split('/')[2]
     // this.setState({
