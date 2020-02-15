@@ -83,7 +83,6 @@ export default class Layout extends Component {
           <Route path='/home/my' component={My} />
           <Route path='/home/find' component={Find} />
         </Switch>
-
         
         <TabBar
           // 未选中字体颜色
