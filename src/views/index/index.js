@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Carousel, Flex, Grid, WingBlank } from "antd-mobile";
-import axios from "axios";
+// import axios from "axios";
+import $axios from '../../utils/api'
+import { IMG_Url } from '../../utils/config'
 import "./index.scss"
-
+// import Bscroll from 'better-scroll'
 
 // 引入菜单图标
 import Nav1 from "../../assets/imgs/nav-1.png";
@@ -11,7 +13,6 @@ import Nav3 from "../../assets/imgs/nav-3.png";
 import Nav4 from "../../assets/imgs/nav-4.png";
 
 // 配置基准地址
-axios.defaults.baseURL = "http://localhost:8080";
 
 export default class Index extends Component {
   state = {
@@ -23,34 +24,41 @@ export default class Index extends Component {
 
   // 接口拿到轮播图数据
   getSwiperImg = async () => {
-    let { data } = await axios.get("/home/swiper");
-    if (data.status === 200) {
+    let  { body }  = await $axios({method:'get',url:'/home/swiper'});
+    console.log(body);
+    
       this.setState({
-        swiperData: data.body
+        swiperData: body
       });
-    }
   };
 
   // 接口拿到租房小组数据
   getGroupData = async () => {
-    let { data } = await axios.get("/home/groups");
-    if (data.status === 200) {
+    let { body } = await $axios({method:'get',url:'/home/groups'});
+   
       this.setState({
-        groupsData: data.body
+        groupsData:body
       });
-    }
   };
 
   // 接口拿到最新资讯
   getNewsData = async ()=> {
-    const { data } = await axios.get('/home/news')
-    if (data.status === 200) {
+    let { body } = await $axios({method:'get',url:'/home/news'})
+    
       this.setState({
-        newsData:data.body
+        newsData:body
       })
-    }
     
   }
+
+  // setBscroll = () => {
+  //   const ccc = this.refs.warpper
+  //   const scroll = new this.BScroll(ccc, {
+  //     scrollX: true,  //开启横向滚动
+  //     click: true,  // better-scroll 默认会阻止浏览器的原生 click 事件
+  //     scrollY: false, //关闭竖向滚动
+  //   })
+  // }
 
   // 组件加载完成，填充数据
   componentDidMount() {
@@ -65,7 +73,7 @@ export default class Index extends Component {
   swiper = () => {
     const swiperTag = this.state.swiperData.map(item => (
       <img
-        src={`http://localhost:8080${item.imgSrc}`}
+        src={`${IMG_Url}${item.imgSrc}`}
         key={item.id}
         alt=""
         onLoad={() => {
@@ -127,7 +135,7 @@ export default class Index extends Component {
                      <h3>{data.title}</h3>
                      <p>{data.desc}</p>
                   </div>
-                  <img src={`http://localhost:8080${data.imgSrc}`} alt=""/>
+                  <img src={`${IMG_Url}${data.imgSrc}`} alt=""/>
                 </div>
               )}
             />  
@@ -140,7 +148,7 @@ export default class Index extends Component {
     const newsTag = this.state.newsData.map(item => (
       <div className='news-item'  key={item.id}>
         <div className='imgwarp'>
-          <img className='img' src={`http://localhost:8080${item.imgSrc}`} alt=""/>
+          <img className='img' src={`${IMG_Url}${item.imgSrc}`} alt=""/>
         </div>
         <Flex className='content' justify='between' direction='column'>
           <h3 className='title'>{item.title}</h3>
