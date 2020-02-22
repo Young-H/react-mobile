@@ -1,0 +1,172 @@
+.map-overlay {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  text-align: center;
+  color:#000;
+  background-color: pink;
+  padding-top: 22px;
+  position: relative;
+  z-index: 2;
+  .arrow-bottom {
+    position: absolute;
+    left: 24px;
+    bottom: -6px;
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    transform: rotate(45deg);
+    // border-left: 20px solid transparent;
+    // border-right: 20px solid transparent;
+    // border-bottom: 20px solid transparent;
+    // border-top: 20 solid skyblue;
+  }
+}
+
+.nav-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.map-second {
+  // background-color: rgba($color: skyblue, $alpha: .);
+  background-color: skyblue;
+  color: orange;
+  .arrow-bottom{
+  background-color: skyblue;
+  // background-color: rgba($color: skyblue, $alpha: .4);
+  // width: 0;
+  // height: 0;
+  // border-left: 20px solid transparent;
+  // border-right: 20px solid transparent;
+  // border-bottom: 20px solid transparent;
+  // border-top: 10 solid skyblue;
+  }
+}
+
+.third-item {
+  width: 120px;
+  text-align: center;
+  height: 26px;
+  background-color:coral;
+  border-radius: 10px;
+  line-height: 26px;
+  color: #fff;
+}
+
+// 房屋列表样式
+
+.houseList {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 313px;
+  transform: translate3d(0, 500px, 0);
+  transition: all 1s;
+  padding-top: 44px;
+  overflow: auto;
+  // display: none;
+  .item-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #c0c0c2;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 15px;
+    h3 {
+      float: left;
+      font-size: 16px;
+    }
+    span {
+      float: right;
+      font-size: 12px;
+    }
+  }
+  .item-context {
+    .item-city {
+      display: flex;
+      // padding: 20px 15px;
+      margin: 0 15px;
+      padding: 20px 0;
+      border-bottom: 1px solid #ccc;
+      .item-img {
+        width: 106px;
+        height: 80px;
+        background-color: pink;
+        margin-right: 12px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .item-text {
+        flex: 1;
+        overflow: hidden;
+        h4 {
+          font-size: 15px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          vertical-align: middle;
+          color: #394043;
+        }
+        p {
+          font-size: 12px;
+          color: #ccc;
+          height: 23px;
+          line-height: 23px;
+        }
+        .item-tags {
+          width: 100%;
+          height: 24px;
+          overflow: auto;
+          .tag {
+            display: inline-block;
+            padding: 4px 5px;
+            background-color: #e1f5f8;
+            color: #49becd;
+            font-size: 12px;
+            border-radius: 4px;
+            margin-right: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .tag1 {
+            color: #39becd;
+            background: #e1f5f8;
+          }
+          .tag2 {
+            color: #3fc28c;
+            background: #e1f5ed;
+          }
+          .tag3 {
+            color: #5aabfd;
+            background: #e6f2ff;
+          }
+        }
+        .item-pice {
+          height: 23px;
+          line-height: 25px;
+          color: red;
+          font-size: 12px;
+          span {
+            font-weight: 700;
+            font-size: 16px;
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.show {
+  transform: translate3d(0, 0, 0);
+}

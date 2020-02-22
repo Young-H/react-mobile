@@ -30,6 +30,13 @@ export default class Layout extends Component {
     // 如果是一级路由， 拿到的是/home  是0  所以必须是二级路由 能拿到，必须是2级路由，才设置
     if (index !== -1 && index !== 0 ) {
       let selected = Url.substring(index + 1)
+      let menus = ['index','info','find','my']
+      // 新建一个数组， 判断上述四个路径是否存在， 如果都不是， 默认给一个index   
+      //   includes  判断数组中是否存在传入的值， 如果存在，返回true  不存在 返回fasle  
+      if (!menus.includes(selected)) {
+        // 如果不存在  默认设置 index
+        selected = 'index'
+      }       
       this.setState({
         selectedTab:selected
       })

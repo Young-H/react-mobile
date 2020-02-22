@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Carousel, Flex, Grid, WingBlank,NavBar,Icon} from "antd-mobile";
-// import axios from "axios";
 import $axios from '../../utils/api'
 import { IMG_Url } from '../../utils/config'
 import "./index.scss"
@@ -12,6 +11,8 @@ import Nav2 from "../../assets/imgs/nav-2.png";
 import Nav3 from "../../assets/imgs/nav-3.png";
 import Nav4 from "../../assets/imgs/nav-4.png";
 
+// y引入封装的 地图定位  
+import getCurrentCity from '../../utils/location'
 // 配置基准地址
 
 export default class Index extends Component {
@@ -65,7 +66,24 @@ export default class Index extends Component {
     this.getSwiperImg();
     this.getGroupData();
     this.getNewsData()
-    console.log(this.refs.warpper);
+
+    // 获取当前城市的名称
+
+   getCurrentCity().then(city => {
+     this.setState({
+       currentCity:city.label
+     })
+   })
+    
+    // let city = window.localStorage.getItem('hkzf_city')
+    // console.log(city);
+    // if (city) {
+    //   city = JSON.parse(city)
+    //   this.setState({
+    //     currentCity:city.label
+    //   })
+    // }
+    
     
   }
 
@@ -173,17 +191,22 @@ export default class Index extends Component {
     return (
       <NavBar
         mode="dark"
-        icon='北京'
+        icon={this.state.currentCity}
         onLeftClick={() => {
           // 跳转到选择城市页面
           this.props.history.push('/citylist')
         }}
         rightContent={[
-          <Icon key="1" type="ellipsis" />,
+          <Icon
+          onClick={()=>{
+            this.props.history.push('/map')
+          }}
+           key="1" type="ellipsis" />,
         ]}
-      >主页</NavBar>
+      >主页</NavBar> 
     )
   }
+  
   render() {
     return (
       <div ref='warpper'>

@@ -1,0 +1,1 @@
+export const IMG_Url = 'http://localhost:8080'
